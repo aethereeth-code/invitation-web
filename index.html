@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Wedding Of</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<section class="cover" id="cover">
+    <div class="flower-top"></div>
+
+    <div class="content">
+
+        <div class="title">
+            THE WEDDING OF
+        </div>
+
+        <div class="name">
+            Alexa
+            <br>
+            &
+            <br>
+            Hansa
+        </div>
+
+        <div class="date">
+            20 SEPTEMBER 2026
+        </div>
+
+        <div class="guest">
+            <p>Kepada Yth.</p>
+            <p>Bapak / Ibu / Saudara/i</p>
+
+            <h2 id="guestName">
+                Tamu Undangan
+            </h2>
+        </div>
+
+      <button class="btn" onclick="openInvitation()">
+    💌 Buka Undangan
+</button>
+
+        <div class="quote">
+            Together with our families,
+            we invite you to celebrate
+            our wedding day.
+        </div>
+
+    </div>
+
+    <div class="flower-bottom"></div>
+
+</section>
+
+<!---Ayat-->
+<div id="mainContent">
+<section class="verse-section reveal" id="ayat">
+
+        <div class="verse-content">
+
+            <div class="verse-icon">❀</div>
+
+            <h2>QS. Ar-Rum : 21</h2>
+
+            <p class="verse">
+                "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan
+                untukmu pasangan-pasangan dari jenismu sendiri agar kamu
+                cenderung dan merasa tenteram kepadanya."
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- Profil Mempelai -->
+<section class="couple-section reveal">
+
+    <div class="section-title">
+        <h2>Mempelai</h2>
+        <p>Dengan memohon rahmat dan ridho Allah SWT</p>
+    </div>
+
+    <div class="couple-card">
+
+        <img src="assets/female.jpg" alt="Mempelai Wanita">
+
+        <h3>Alexa Maharani</h3>
+
+        <p class="parent">
+            Putri Pertama dari
+            <br>
+            Bapak Ahmad Wijaya
+            <br>&<br>
+            Ibu Siti Nurhaliza
+        </p>
+
+    </div>
+
+    <div class="and-symbol">
+        &
+    </div>
+
+    <div class="couple-card">
+
+        <img src="assets/male.jpg" alt="Mempelai Pria">
+
+        <h3>Hansa Pratama</h3>
+
+        <p class="parent">
+            Putra Pertama dari
+            <br>
+            Bapak Bambang Pratama
+            <br>&<br>
+            Ibu Nur Aisyah
+        </p>
+
+    </div> 
+
+</section>
+
+<!-- Countdown -->
+<section class="countdown-section reveal">
+
+    <div class="countdown-content">
+
+        <h2>Save The Date</h2>
+
+        <p class="countdown-subtitle">
+            Kami menantikan kehadiran Anda
+            di hari bahagia kami
+        </p>
+
+        <div class="wedding-date">
+            20 September 2026
+        </div>
+
+        <div class="countdown-box">
+
+            <div class="count-item">
+                <span id="days">00</span>
+                <small>Hari</small>
+            </div>
+
+            <div class="count-item">
+                <span id="hours">00</span>
+                <small>Jam</small>
+            </div>
+
+            <div class="count-item">
+                <span id="minutes">00</span>
+                <small>Menit</small>
+            </div>
+
+            <div class="count-item">
+                <span id="seconds">00</span>
+                <small>Detik</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Detail Acara -->
+<section class="event-section reveal">
+
+    <div class="event-header">
+        <h2>Detail Acara</h2>
+        <p>Dengan segala kerendahan hati, kami mengundang Anda untuk hadir pada acara pernikahan kami.</p>
+    </div>
+
+    <!-- Akad -->
+    <div class="event-card">
+
+        <div class="event-icon">💍</div>
+
+        <h3>Akad Nikah</h3>
+
+        <p>Minggu, 20 September 2026</p>
+
+        <p>09.00 WIB</p>
+
+        <p>
+            Masjid Agung Al-Hikmah
+            <br>
+            Tangerang Selatan
+        </p>
+
+    </div>
+
+    <!-- Resepsi -->
+    <div class="event-card">
+
+        <div class="event-icon">🎉</div>
+
+        <h3>Resepsi</h3>
+
+        <p>Minggu, 20 September 2026</p>
+
+        <p>13.00 WIB - Selesai</p>
+
+        <p>
+            Gedung Harmoni Ballroom
+            <br>
+            Tangerang Selatan
+        </p>
+
+    </div>
+
+</section>
+
+<!-- Maps -->
+<section class="maps-section reveal">
+
+    <div class="maps-content">
+
+        <h2>Lokasi Acara</h2>
+
+        <p class="maps-subtitle">
+            Kehadiran Anda merupakan kebahagiaan bagi kami.
+            Temukan lokasi acara melalui peta berikut.
+        </p>
+
+        <div class="maps-card">
+
+            <h3>📍 Gedung Harmoni Ballroom</h3>
+
+            <p>
+                Jl. Raya Serpong No. 123
+                <br>
+                Tangerang Selatan
+            </p>
+
+        </div>
+
+        <div class="map-frame">
+
+            <iframe
+                src="https://www.google.com/maps?q=Tangerang+Selatan&output=embed"
+                loading="lazy">
+            </iframe>
+
+        </div>
+
+        <a
+            href="https://maps.google.com/?q=Tangerang+Selatan"
+            target="_blank"
+            class="map-btn">
+
+            📍 Buka Google Maps
+
+        </a>
+
+    </div>
+
+</section>  
+
+<!-- Love Story -->
+<section class="story-section reveal">
+
+    <div class="story-header">
+
+        <h2>Love Story</h2>
+
+        <p>
+            Perjalanan singkat kami hingga
+            menuju hari bahagia ini.
+        </p>
+
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <span class="story-year">2020</span>
+
+                <h3>Awal Bertemu</h3>
+
+                <p>
+                    Pertemuan pertama kami menjadi
+                    awal dari sebuah kisah yang tidak
+                    pernah kami duga sebelumnya.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <span class="story-year">2025</span>
+
+                <h3>Lamaran</h3>
+
+                <p>
+                    Setelah melalui banyak cerita,
+                    kami memutuskan untuk membawa
+                    hubungan ini ke tahap yang lebih serius.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <span class="story-year">2026</span>
+
+                <h3>Menikah</h3>
+
+                <p>
+                    Dengan restu keluarga dan izin Allah SWT,
+                    kami mengikat janji suci dalam
+                    sebuah pernikahan.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Gallery -->
+<section class="gallery-section reveal">
+
+    <div class="gallery-header">
+
+        <h2>Gallery</h2>
+
+        <p>
+            Beberapa momen yang kami abadikan
+            dalam perjalanan kisah cinta kami.
+        </p>
+
+    </div>
+
+    <div class="gallery-grid">
+
+        <img src="assets/gallery1.jpg" alt="Gallery 1">
+        <img src="assets/gallery2.jpg" alt="Gallery 2">
+        <img src="assets/gallery3.jpg" alt="Gallery 3">
+        <img src="assets/gallery4.jpg" alt="Gallery 4">
+        <img src="assets/gallery5.jpg" alt="Gallery 5">
+        <img src="assets/gallery6.jpg" alt="Gallery 6">
+
+    </div>
+
+</section>
+
+<!-- Modal -->
+<div class="gallery-modal" id="galleryModal">
+
+    <span class="close-modal">&times;</span>
+
+    <img id="modalImage">
+
+</div>
+
+<!-- RSVP -->
+<section class="rsvp-section reveal">
+
+    <div class="rsvp-header">
+
+        <h2>RSVP</h2>
+
+        <p>
+            Mohon konfirmasi kehadiran Anda
+            pada acara pernikahan kami.
+        </p>
+
+    </div>
+
+    <form class="rsvp-form" id="rsvpForm">
+
+        <input
+            type="text"
+            id="nama"
+            placeholder="Nama Lengkap"
+            required
+        >
+
+        <select id="jumlah" required>
+
+            <option value="">
+                Jumlah Tamu
+            </option>
+
+            <option>1 Orang</option>
+            <option>2 Orang</option>
+            <option>3 Orang</option>
+            <option>4 Orang</option>
+
+        </select>
+
+        <select id="hadir" required>
+
+            <option value="">
+                Konfirmasi Kehadiran
+            </option>
+
+            <option>Hadir</option>
+            <option>Tidak Hadir</option>
+
+        </select>
+
+        <textarea
+            id="ucapan"
+            placeholder="Ucapan atau pesan..."
+            rows="4"
+        ></textarea>
+
+        <button type="submit">
+            Kirim RSVP
+        </button>
+
+    </form>
+
+</section>
+<!-- Amplop Digital -->
+<section class="gift-section reveal">
+
+    <div class="gift-header">
+
+        <h2>Amplop Digital</h2>
+
+        <p>
+            Doa restu Anda merupakan hadiah terindah bagi kami.
+            Namun jika ingin memberikan tanda kasih, dapat melalui:
+        </p>
+
+    </div>
+
+    <!-- BCA -->
+<!-- BCA CARD -->
+<div class="atm-card">
+
+    <div class="card-header">
+
+        <div class="card-type">
+            Paspor
+            <span>platinum debit</span>
+        </div>
+
+        <div class="bank-logo">
+            BCA
+        </div>
+
+    </div>
+
+    <div class="card-chip"></div>
+
+    <div class="card-number" id="bcaNumber">
+        1234 5678 9012
+    </div>
+
+    <div class="card-name">
+        ALEXA MAHARANI
+    </div>
+
+    <button onclick="copyRekening('bcaNumber')">
+        Salin Rekening
+    </button>
+
+</div>
+
+    <!-- DANA -->
+    <div class="bank-card dana-card">
+
+        <div class="bank-top">
+
+            <div class="bank-logo">
+                DANA
+            </div>
+
+            <div class="card-icon">
+                💙
+            </div>
+
+        </div>
+
+        <div class="chip"></div>
+
+        <div class="card-number" id="danaNumber">
+            0812 3456 7890
+        </div>
+
+        <div class="card-name">
+            Alexa Maharani
+        </div>
+
+        <button onclick="copyRekening('danaNumber')">
+            Salin Nomor DANA
+        </button>
+
+    </div>
+
+</section>
+
+<!-- Ucapan Tamu -->
+<section class="wish-section reveal">
+
+    <div class="wish-header">
+
+        <h2>Best Wishes</h2>
+
+        <p>
+            Ucapan dan doa terbaik dari keluarga,
+            sahabat, dan kerabat.
+        </p>
+
+    </div>
+
+    <div id="wishList">
+
+    </div>
+
+</section>
+<audio id="bgMusic" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,3 +1,23 @@
+window.addEventListener("DOMContentLoaded", () => {
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const guestName = urlParams.get("to");
+
+    const guestElement = document.getElementById("guestName");
+
+    if (guestElement) {
+
+        guestElement.textContent =
+            guestName
+            ? decodeURIComponent(guestName.replace(/\+/g, " "))
+            : "Tamu Undangan";
+
+    }
+
+});
+
+document.body.classList.add("lock");
 // =========================
 // NAMA TAMU DARI URL
 // =========================
@@ -20,28 +40,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
 });
-
-// =========================
-// LOCK SCROLL COVER
-// =========================
-
-document.body.classList.add("lock");
-
-function openInvitation(){
-
-    const music = document.getElementById("bgMusic");
-
-    if(music){
-        music.play().catch(() => {});
-    }
-
-    document.body.classList.remove("lock");
-
-    document.getElementById("ayat").scrollIntoView({
-        behavior:"smooth"
-    });
-
-}
 
 // Animasi reveal saat section masuk viewport
 const observer = new IntersectionObserver((entries) => {
@@ -243,3 +241,176 @@ card.innerHTML = `
 }
 
 loadWishes();
+
+/* refresh*/
+window.history.scrollRestoration = "manual";
+
+window.addEventListener("load", () => {
+    window.scrollTo(0, 0);
+});
+
+document.addEventListener("mousemove",(e)=>{
+
+    const x = (window.innerWidth/2 - e.clientX)/25;
+    const y = (window.innerHeight/2 - e.clientY)/25;
+
+    document.querySelector(".content").style.transform =
+    `rotateY(${x}deg) rotateX(${-y}deg)`;
+
+});
+
+const cover = document.querySelector(".cover");
+const content = document.querySelector(".content");
+const name = document.querySelector(".name");
+const guest = document.querySelector(".guest");
+
+let startX = 0;
+
+cover.addEventListener("touchstart",(e)=>{
+    startX = e.touches[0].clientX;
+});
+
+cover.addEventListener("touchmove",(e)=>{
+
+    const currentX = e.touches[0].clientX;
+
+    const move = (currentX - startX) / 20;
+
+    content.style.transform =
+    `rotateY(${move}deg)`;
+
+    name.style.transform =
+    `translateX(${move * 2}px) translateZ(40px)`;
+
+    guest.style.transform =
+    `translateX(${move * 3}px) translateZ(80px)`;
+
+});
+
+cover.addEventListener("touchend",()=>{
+
+    content.style.transform = "";
+
+    name.style.transform = "";
+
+    guest.style.transform = "";
+
+});
+
+/*AYAT MASUK*/
+const verseText =
+`"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan
+untukmu pasangan-pasangan dari jenismu sendiri agar kamu
+cenderung dan merasa tenteram kepadanya."`;
+
+const verse = document.getElementById("verseText");
+
+const observerVerse = new IntersectionObserver((entries)=>{
+
+    if(entries[0].isIntersecting){
+
+        let i = 0;
+
+        function typeWriter(){
+
+            if(i < verseText.length){
+
+                verse.textContent += verseText.charAt(i);
+
+                i++;
+
+                setTimeout(typeWriter, 30);
+
+            }
+
+        }
+
+        typeWriter();
+
+        observerVerse.disconnect();
+
+    }
+
+},{
+    threshold:0.5
+});
+
+observerVerse.observe(verse);
+
+/*bunga ayat*/
+const ayatSection =
+document.getElementById("ayat");
+
+const floralTop =
+document.querySelector(".floral-top");
+
+const floralBottom =
+document.querySelector(".floral-bottom");
+
+const floralObserver =
+new IntersectionObserver((entries)=>{
+
+    if(entries[0].isIntersecting){
+
+        floralTop.classList.add("show");
+
+        floralBottom.classList.add("show");
+
+        floralObserver.disconnect();
+
+    }
+
+},{
+    threshold:0.3
+});
+
+floralObserver.observe(ayatSection);
+
+/*scrol enak*/
+function openInvitation(){
+
+    const music = document.getElementById("bgMusic");
+
+    if(music){
+        music.play().catch(() => {});
+    }
+
+    document.body.classList.remove("lock");
+
+    const ayat = document.getElementById("ayat");
+
+    window.scrollTo({
+        top: ayat.offsetTop - 0,
+        behavior: "smooth"
+    });
+
+}
+
+/*bingkai mempelai*/
+const coupleSection =
+document.getElementById("couple");
+
+const coupleTop =
+document.querySelector(".couple-floral-top");
+
+const coupleBottom =
+document.querySelector(".couple-floral-bottom");
+
+const coupleObserver =
+new IntersectionObserver((entries)=>{
+
+    if(entries[0].isIntersecting){
+
+        coupleTop.classList.add("show");
+
+        coupleBottom.classList.add("show");
+
+        coupleObserver.disconnect();
+
+    }
+
+},{
+    threshold:0.3
+});
+
+coupleObserver.observe(coupleSection);

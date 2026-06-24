@@ -2,15 +2,24 @@
 // NAMA TAMU DARI URL
 // =========================
 
-const params = new URLSearchParams(window.location.search);
+window.addEventListener("DOMContentLoaded", () => {
 
-const guestName = params.get("to");
+    const urlParams = new URLSearchParams(window.location.search);
 
-document.getElementById("guestName").textContent =
-    guestName
-        ? decodeURIComponent(guestName.replace(/\+/g, " "))
-        : "Tamu Undangan";
+    const guestName = urlParams.get("to");
 
+    const guestElement = document.getElementById("guestName");
+
+    if (guestElement) {
+
+        guestElement.textContent =
+            guestName
+            ? decodeURIComponent(guestName.replace(/\+/g, " "))
+            : "Tamu Undangan";
+
+    }
+
+});
 
 // =========================
 // LOCK SCROLL COVER

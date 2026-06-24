@@ -232,3 +232,13 @@ card.innerHTML = `
 }
 
 loadWishes();
+
+/*nama tamu */
+const params = new URLSearchParams(window.location.search);
+
+const guestName = params.get("to");
+
+document.getElementById("guestName").textContent =
+    guestName
+    ? decodeURIComponent(guestName.replace(/\+/g, " "))
+    : "Tamu Undangan";

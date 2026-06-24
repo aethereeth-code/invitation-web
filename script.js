@@ -1,28 +1,30 @@
-// Nama tamu dari URL
+// =========================
+// NAMA TAMU DARI URL
+// =========================
+
 const params = new URLSearchParams(window.location.search);
 
-const guest = params.get("to");
+const guestName = params.get("to");
 
-if (guest) {
-    document.getElementById("guestName").textContent = guest;
-}
+document.getElementById("guestName").textContent =
+    guestName
+        ? decodeURIComponent(guestName.replace(/\+/g, " "))
+        : "Tamu Undangan";
 
-// Lock scroll saat cover tampil
+
+// =========================
+// LOCK SCROLL COVER
+// =========================
+
 document.body.classList.add("lock");
 
 function openInvitation(){
 
-    const music =
-    document.getElementById("bgMusic");
+    const music = document.getElementById("bgMusic");
 
-    music.play();
-
-    document.body.classList.remove("lock");
-
-    document.getElementById("ayat").scrollIntoView({
-        behavior:"smooth"
-    });
-
+    if(music){
+        music.play().catch(() => {});
+    }
 
     document.body.classList.remove("lock");
 
@@ -232,13 +234,3 @@ card.innerHTML = `
 }
 
 loadWishes();
-
-/*nama tamu */
-const params = new URLSearchParams(window.location.search);
-
-const guestName = params.get("to");
-
-document.getElementById("guestName").textContent =
-    guestName
-    ? decodeURIComponent(guestName.replace(/\+/g, " "))
-    : "Tamu Undangan";

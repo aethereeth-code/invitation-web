@@ -61,8 +61,7 @@ const observer = new IntersectionObserver((entries) => {
         observer.observe(el);
     });
 
-const weddingDate = new Date("Juni 20, 2026 23:46:00").getTime();
-
+const weddingDate = new Date("2026-07-18T09:00:00+07:00").getTime();
     setInterval(() => {
 
         const now = new Date().getTime();
@@ -100,42 +99,57 @@ const weddingDate = new Date("Juni 20, 2026 23:46:00").getTime();
 
     }, 1000);
 
-// Gallery Modal
+// =========================
+// GALLERY MODAL
+// =========================
 
 const modal = document.getElementById("galleryModal");
-
 const modalImg = document.getElementById("modalImage");
+const galleryImages = document.querySelectorAll(".gallery-slider img");
+const closeModal = document.querySelector(".close-modal");
 
-const galleryImages = document.querySelectorAll(".gallery-grid img");
-
-galleryImages.forEach(img => {
+galleryImages.forEach((img) => {
 
     img.addEventListener("click", () => {
 
         modal.style.display = "flex";
-
         modalImg.src = img.src;
+
+        document.body.style.overflow = "hidden";
 
     });
 
 });
 
-document.querySelector(".close-modal").addEventListener("click", () => {
+closeModal.addEventListener("click", () => {
 
     modal.style.display = "none";
+    document.body.style.overflow = "";
 
 });
 
 modal.addEventListener("click", (e) => {
 
-    if(e.target === modal){
+    if (e.target === modal) {
 
         modal.style.display = "none";
+        document.body.style.overflow = "";
 
     }
 
 });
 
+// tekan ESC untuk menutup
+document.addEventListener("keydown", (e) => {
+
+    if (e.key === "Escape") {
+
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+
+    }
+
+});
 // RSVP 
 document.getElementById("rsvpForm").addEventListener("submit", async (e) => {
 
@@ -162,11 +176,14 @@ document.getElementById("rsvpForm").addEventListener("submit", async (e) => {
 
         console.log("RESPONSE:", response);
 
-        const text = await response.text();
+      const text = await response.text();
 
-        console.log("TEXT:", text);
+console.log("TEXT:", text);
 
-        alert("Berhasil terkirim");
+alert("Berhasil terkirim ✅");
+
+// Kosongkan semua input
+document.getElementById("rsvpForm").reset();
 
     } catch(error){
 
@@ -249,54 +266,6 @@ window.addEventListener("load", () => {
     window.scrollTo(0, 0);
 });
 
-document.addEventListener("mousemove",(e)=>{
-
-    const x = (window.innerWidth/2 - e.clientX)/25;
-    const y = (window.innerHeight/2 - e.clientY)/25;
-
-    document.querySelector(".content").style.transform =
-    `rotateY(${x}deg) rotateX(${-y}deg)`;
-
-});
-
-const cover = document.querySelector(".cover");
-const content = document.querySelector(".content");
-const name = document.querySelector(".name");
-const guest = document.querySelector(".guest");
-
-let startX = 0;
-
-cover.addEventListener("touchstart",(e)=>{
-    startX = e.touches[0].clientX;
-});
-
-cover.addEventListener("touchmove",(e)=>{
-
-    const currentX = e.touches[0].clientX;
-
-    const move = (currentX - startX) / 20;
-
-    content.style.transform =
-    `rotateY(${move}deg)`;
-
-    name.style.transform =
-    `translateX(${move * 2}px) translateZ(40px)`;
-
-    guest.style.transform =
-    `translateX(${move * 3}px) translateZ(80px)`;
-
-});
-
-cover.addEventListener("touchend",()=>{
-
-    content.style.transform = "";
-
-    name.style.transform = "";
-
-    guest.style.transform = "";
-
-});
-
 /*AYAT MASUK*/
 const verseText =
 `"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan
@@ -367,12 +336,14 @@ new IntersectionObserver((entries)=>{
 floralObserver.observe(ayatSection);
 
 /*scrol enak*/
-function openInvitation(){
+function openInvitation() {
 
-    const music = document.getElementById("bgMusic");
-
-    if(music){
-        music.play().catch(() => {});
+    if (music) {
+        music.play()
+            .then(() => {
+                playBtn.innerHTML = "❚❚";
+            })
+            .catch(err => console.log(err));
     }
 
     document.body.classList.remove("lock");
@@ -380,37 +351,80 @@ function openInvitation(){
     const ayat = document.getElementById("ayat");
 
     window.scrollTo({
-        top: ayat.offsetTop - 0,
+        top: ayat.offsetTop,
         behavior: "smooth"
+    });
+}
+/*bingkai mempelai*/
+/* bingkai mempelai */
+const coupleSection = document.getElementById("couple");
+const coupleTop = document.querySelector(".couple-floral-top");
+const coupleBottom = document.querySelector(".couple-floral-bottom");
+
+if (coupleSection && coupleTop && coupleBottom) {
+
+    const coupleObserver = new IntersectionObserver((entries) => {
+
+        if (entries[0].isIntersecting) {
+
+            coupleTop.classList.add("show");
+            coupleBottom.classList.add("show");
+
+            coupleObserver.disconnect();
+        }
+
+    }, {
+        threshold: 0.3
+    });
+
+    coupleObserver.observe(coupleSection);
+}
+
+
+/* SOUND */
+const music = document.getElementById("bgMusic");
+const playBtn = document.getElementById("playBtn");
+const soundBtn = document.getElementById("soundBtn");
+
+if (music && playBtn && soundBtn) {
+
+    playBtn.innerHTML = "▶";
+    soundBtn.innerHTML = "🔊";
+
+    playBtn.addEventListener("click", async () => {
+
+        try {
+
+            if (music.paused) {
+
+                await music.play();
+                playBtn.innerHTML = "❚❚";
+
+            } else {
+
+                music.pause();
+                playBtn.innerHTML = "▶";
+
+            }
+
+        } catch (err) {
+
+            console.log("Music Error:", err);
+
+        }
+
+    });
+
+    soundBtn.addEventListener("click", () => {
+
+        music.muted = !music.muted;
+
+        soundBtn.innerHTML =
+            music.muted
+                ? "🔇"
+                : "🔊";
+
     });
 
 }
 
-/*bingkai mempelai*/
-const coupleSection =
-document.getElementById("couple");
-
-const coupleTop =
-document.querySelector(".couple-floral-top");
-
-const coupleBottom =
-document.querySelector(".couple-floral-bottom");
-
-const coupleObserver =
-new IntersectionObserver((entries)=>{
-
-    if(entries[0].isIntersecting){
-
-        coupleTop.classList.add("show");
-
-        coupleBottom.classList.add("show");
-
-        coupleObserver.disconnect();
-
-    }
-
-},{
-    threshold:0.3
-});
-
-coupleObserver.observe(coupleSection);

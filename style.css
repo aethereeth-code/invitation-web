@@ -11,24 +11,27 @@ body{
 }
 
 .cover{
-      width:100%;
+    width:100%;
     min-height:100vh;
     height:auto;
 
     background:
-    linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),
-    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200");
+    linear-gradient(rgba(0,0,0,.30),rgba(0,0,0,.30)),
+    url("assets/herobg.jpg");
 
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
     padding:40px 20px;
-}
 
+    position:relative;
+    overflow:hidden;
+}
 .content{
     width:100%;
     max-width:700px;
@@ -269,6 +272,59 @@ body{
     }
 }
 
+/*sound*/ 
+.music-control{
+    position:absolute;
+    right:18px;
+    bottom:95px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:99999;
+    pointer-events:auto;
+}
+
+.music-control button{
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:50%;
+    background:rgba(122,30,44,.92);
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    pointer-events:auto;
+}
+
+.music-control button:hover{
+    transform:scale(1.05);
+}
+
+@media (max-width:480px){
+    .music-control{
+        right:15px;
+        bottom:85px;
+        gap:10px;
+    }
+
+    .music-control button{
+        width:44px;
+        height:44px;
+        font-size:18px;
+    }
+}
+.content{
+    position:relative;
+    z-index:1;
+}
+
+.music-control{
+    z-index:99999;
+}
 /* AYAT */
 
 .verse-section{
@@ -452,6 +508,16 @@ body.lock{
     overflow:hidden;
 }
 
+.ig-name{
+    color:#7A1E2C;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.ig-name:hover{
+    color:#b8865b;
+    text-decoration:underline;
+}
 /* BUNGA */
 
 .couple-floral-top{
@@ -660,6 +726,122 @@ body.lock{
     line-height:2;
 }
 
+.event-section{
+    min-height:100vh;
+    padding:120px 25px;
+    background:#fff;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.event-floral-top{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1;
+    pointer-events:none;
+}
+
+.event-floral-bottom{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    z-index:1;
+    pointer-events:none;
+}
+
+.event-header,
+.event-card{
+    position:relative;
+    z-index:2;
+}
+
+.event-icon{
+    width:80px;
+    height:80px;
+    margin:0 auto 25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:2px solid #b8865b;
+    border-radius:50%;
+
+    color:#7A1E2C;
+    background:#fffaf5;
+
+    font-size:34px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.event-icon i{
+    font-size:34px;
+}
+
+.event-line{
+    width:70px;
+    height:2px;
+    background:#d4b277;
+    margin:25px auto;
+}
+
+.dress-code span{
+    display:block;
+    font-weight:600;
+    color:#7A1E2C;
+    margin-bottom:12px;
+}
+
+.dress-color{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+}
+
+.color{
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    border:2px solid #fff;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+.maroon{
+    background:#7A1E2C;
+}
+
+.cream{
+    background:#F5F1E8;
+}
+
+.beige{
+    background:#D6B48A;
+}
+
+.event-quote{
+    font-style:italic;
+    color:#888;
+    line-height:1.8;
+}
+
+.event-divider{
+    width:70px;
+    height:2px;
+    background:#d6b48a;
+    margin:25px auto;
+    border-radius:10px;
+}
+
+.event-note{
+    color:#888;
+    font-size:15px;
+    line-height:1.8;
+    font-style:italic;
+}
 /* MAPS */
 
 .maps-section{
@@ -739,6 +921,41 @@ body.lock{
     font-weight:600;
 
     box-shadow:0 8px 20px rgba(122,30,44,.2);
+}
+
+.maps-section{
+    min-height:100vh;
+    background:#faf7f4;
+    padding:120px 25px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.maps-floral-top{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1;
+    pointer-events:none;
+}
+
+.maps-floral-bottom{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    z-index:1;
+    pointer-events:none;
+}
+
+.maps-content{
+    width:100%;
+    text-align:center;
+    position:relative;
+    z-index:2;
 }
 
 /* LOVE STORY */
@@ -836,6 +1053,37 @@ body.lock{
     line-height:1.8;
 }
 
+.story-section{
+    min-height:100vh;
+    background:#ffffff;
+    padding:120px 25px;
+    position:relative;
+    overflow:hidden;
+}
+
+.story-floral-top{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1;
+    pointer-events:none;
+}
+
+.story-floral-bottom{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    z-index:1;
+    pointer-events:none;
+}
+
+.story-header,
+.timeline{
+    position:relative;
+    z-index:2;
+}
 /* GALLERY */
 
 .gallery-section{
@@ -860,10 +1108,58 @@ body.lock{
     line-height:1.8;
 }
 
-.gallery-grid{
+.gallery-slider{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
+    grid-template-rows:repeat(2,220px);
+    grid-auto-flow:column;
+    grid-auto-columns:200px;
+
+    gap:16px;
+
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    padding:10px 5px 18px;
+
+    scroll-behavior:smooth;
+}
+
+.gallery-slider img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:22px;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+.gallery-slider img:hover{
+    transform:scale(1.05);
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+}
+
+.gallery-slider::-webkit-scrollbar{
+    height:8px;
+}
+
+.gallery-slider::-webkit-scrollbar-track{
+    background:#efe8df;
+    border-radius:20px;
+}
+
+.gallery-slider::-webkit-scrollbar-thumb{
+    background:linear-gradient(90deg,#caa56a,#9f7a38);
+    border-radius:20px;
+}
+
+.gallery-slider::-webkit-scrollbar-thumb:hover{
+    background:#b58b4a;
 }
 
 .gallery-grid img{
@@ -889,7 +1185,7 @@ body.lock{
     position:fixed;
     inset:0;
 
-    background:rgba(0,0,0,.9);
+    background:rgba(0,0,0,.88);
 
     display:none;
 
@@ -897,28 +1193,81 @@ body.lock{
     align-items:center;
 
     z-index:9999;
+
+    animation:fadeIn .3s;
 }
 
 .gallery-modal img{
-    width:90%;
-    max-width:400px;
+    width:92%;
+    max-width:550px;
+    max-height:90vh;
+
+    object-fit:contain;
 
     border-radius:20px;
+
+    animation:zoomIn .3s ease;
 }
 
 .close-modal{
     position:absolute;
+    top:25px;
+    right:30px;
 
-    top:20px;
-    right:25px;
+    color:#fff;
 
-    color:white;
-
-    font-size:40px;
+    font-size:45px;
 
     cursor:pointer;
 }
 
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes zoomIn{
+    from{
+        transform:scale(.8);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.gallery-section{
+    min-height:100vh;
+    background:#faf7f4;
+    padding:120px 20px;
+    position:relative;
+    overflow:hidden;
+}
+
+.gallery-floral-top{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1;
+    pointer-events:none;
+}
+
+.gallery-floral-bottom{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    z-index:1;
+    pointer-events:none;
+}
+
+.gallery-header,
+.gallery-grid{
+    position:relative;
+    z-index:2;
+}
 /* RSVP */
 
 .rsvp-section{
@@ -992,18 +1341,69 @@ body.lock{
 
     cursor:pointer;
 }
-/* AMPLOP DIGITAL */
-/* AMPLOP DIGITAL */
-
-.gift-section{
+.rsvp-section{
     min-height:100vh;
+    background:#ffffff;
+    padding:120px 25px;
+    position:relative;
+    overflow:hidden;
+}
+
+.rsvp-floral-top{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1;
+}
+
+.rsvp-floral-bottom{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    z-index:1;
+}
+
+.rsvp-header,
+.rsvp-form{
+    position:relative;
+    z-index:2;
+}
+/* AMPLOP DIGITAL */
+.gift-section{
     background:#faf7f4;
-    padding:80px 25px;
+    padding:180px 20px 120px;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+}
+
+.gift-floral-top,
+.gift-floral-bottom{
+    position:absolute;
+    left:0;
+    width:100%;
+    z-index:1;
+}
+
+.gift-floral-top{
+    top:0;
+}
+
+.gift-floral-bottom{
+    bottom:0;
+}
+
+.gift-header,
+.atm-card,
+.dana-card{
+    position:relative;
+    z-index:2;
 }
 
 .gift-header{
-    text-align:center;
-    margin-bottom:40px;
+    margin-bottom:35px;
 }
 
 .gift-header h2{
@@ -1014,316 +1414,128 @@ body.lock{
 
 .gift-header p{
     color:#777;
-    line-height:1.8;
+    line-height:1.8;    
 }
 
-.bank-card{
-    position:relative;
-
-    padding:25px;
-
-    border-radius:28px;
-
-    margin-bottom:25px;
-
+/* KARTU */
+.atm-card,
+.dana-card{
+    width:350px;
+    margin:0 auto 25px;
+    padding:20px;
+    border-radius:24px;
+    color:#fff;
     overflow:hidden;
-
-    color:white;
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.15);
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
 }
 
-.bank-card::before{
-    content:"";
-
-    position:absolute;
-
-    top:-60px;
-    right:-60px;
-
-    width:180px;
-    height:180px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.12);
-}
-
-.bank-card::after{
-    content:"";
-
-    position:absolute;
-
-    bottom:-80px;
-    left:-80px;
-
-    width:220px;
-    height:220px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.08);
-}
-
+/* BCA */
 .atm-card{
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:22px;
-
-    padding:25px;
-
-    min-height:230px;
-
-    margin-bottom:25px;
-
-    color:white;
-
     background:
     linear-gradient(
         135deg,
         #202020,
         #5f6368
     );
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.2);
 }
 
-/* Background lingkaran */
-
-.atm-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:260px;
-    height:260px;
-
-    border-radius:50%;
-
-    border:8px solid rgba(255,255,255,.15);
-
-    right:-80px;
-    top:-70px;
+/* DANA */
+.dana-card{
+    background:
+    linear-gradient(
+        135deg,
+        #5b5f1f,
+        #e6fc65
+    );
 }
 
-.atm-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:180px;
-    height:180px;
-
-    border-radius:50%;
-
-    border:8px solid rgba(255,255,255,.08);
-
-    left:-70px;
-    bottom:-70px;
-}
-
-.card-header{
-
-    display:flex;
-
+/* HEADER */
+.card-header,
+.bank-top{
+    display:flex;       
     justify-content:space-between;
-
     align-items:center;
-
-    margin-bottom:25px;
-
-    position:relative;
-    z-index:2;
+    margin-bottom:20px;
 }
 
 .card-type{
-
-    font-size:16px;
+    text-align:left;
+    font-size:14px;
     font-weight:700;
 }
 
 .card-type span{
-
     display:block;
-
-    font-size:12px;
-
+    font-size:11px;
     font-weight:400;
-
-    opacity:.8;
 }
 
 .bank-logo{
-
-    font-size:34px;
-    font-weight:700;
-}
-
-.card-chip{
-
-    width:55px;
-    height:40px;
-
-    border-radius:8px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #f6d36f,
-        #cfa33a
-    );
-
-    margin-bottom:25px;
-
-    position:relative;
-    z-index:2;
-}
-
-.card-number{
-
     font-size:24px;
-
-    letter-spacing:3px;
-
     font-weight:700;
+}
 
+/* CHIP */
+.card-chip,
+.chip{
+    width:45px;
+    height:32px;
+    border-radius:8px;
+    background:#f6d36f;
     margin-bottom:20px;
-
-    position:relative;
-    z-index:2;
 }
 
-.card-name{
-
-    text-transform:uppercase;
-
-    font-size:15px;
-
-    margin-bottom:25px;
-
-    letter-spacing:1px;
-
-    position:relative;
-    z-index:2;
-}
-
-.atm-card button{
-
-    border:none;
-
-    background:white;
-
-    color:#111;
-
-    padding:12px 20px;
-
-    border-radius:50px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    position:relative;
-    z-index:2;
-}
-.dana-card{
-    background:
-    linear-gradient(
-    135deg,
-    #1084ff,
-    #00b7ff
-    );
-}
-
-.bank-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    margin-bottom:25px;
-
-    position:relative;
-    z-index:2;
-}
-
-.bank-logo{
-    font-size:22px;
+/* NOMOR */
+.card-number{
+    font-size:20px;
     font-weight:700;
+    letter-spacing:2px;
+    margin-bottom:16px;
+    text-align:left;
+}
+
+/* NAMA */
+.card-name{
+    font-size:13px;
+    margin-bottom:20px;
+    text-align:left;
+}
+
+/* BUTTON */
+.atm-card button,
+.dana-card button{
+    border:none;
+    background:#fff;
+    color:#222;
+    padding:10px 18px;
+    border-radius:50px;
+    font-size:12px;
+    font-weight:600;
+    cursor:pointer;
 }
 
 .card-icon{
-    font-size:28px;
+    font-size:22px; 
 }
-
-.chip{
-    width:50px;
-    height:38px;
-
-    border-radius:8px;
-
-    background:
-    linear-gradient(
-    135deg,
-    #f7d774,
-    #d4af37
-    );
-
-    margin-bottom:25px;
-
-    position:relative;
-    z-index:2;
-}
-
-.card-number{
-    font-size:24px;
-    font-weight:700;
-
-    letter-spacing:2px;
-
-    margin-bottom:18px;
-
-    position:relative;
-    z-index:2;
-}
-
-.card-name{
-    font-size:15px;
-
-    opacity:.95;
-
-    margin-bottom:25px;
-
-    position:relative;
-    z-index:2;
-}
-
-.bank-card button{
-
-    border:none;
-
-    background:white;
-
-    color:#222;
-
-    padding:13px 22px;
-
+.transfer-btn{
+    display:block;
+    width:max-content;
+    margin:25px auto 0;
+    background:#7A1E2C;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 28px;
     border-radius:50px;
-
     font-weight:600;
-
-    cursor:pointer;
-
+    text-align:center;
     position:relative;
     z-index:2;
+    transition:0.3s;
 }
 
+.transfer-btn:hover{
+    background:#5f1722;
+}
 /* UCAPAN TAMU */
 
 .wish-section{
@@ -1348,19 +1560,59 @@ body.lock{
 }
 
 #wishList{
+    position:relative;
+    z-index:2;
+
     display:flex;
     flex-direction:column;
     gap:15px;
+
+    height:360px;          /* tinggi frame */
+    overflow-y:auto;
+
+    padding:8px 10px 8px 0;
+    scroll-behavior:smooth;
 }
 
 .wish-card{
+    flex-shrink:0;
+
     background:#faf7f4;
 
     padding:20px;
 
-    border-radius:18px;
+    border-radius:20px;
 
-    box-shadow:0 5px 15px rgba(0,0,0,.05);
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+
+    animation:fadeUp .4s ease;
+}
+
+#wishList::-webkit-scrollbar{
+    width:8px;
+}
+
+#wishList::-webkit-scrollbar-track{
+    background:#efe7dd;
+    border-radius:20px;
+}
+
+#wishList::-webkit-scrollbar-thumb{
+    background:linear-gradient(
+        to bottom,
+        #d7b46a,
+        #b88a3d
+    );
+    border-radius:20px;
+}
+
+#wishList::-webkit-scrollbar-thumb:hover{
+    background:#a97b34;
+}
+
+#wishList{
+    scrollbar-width:thin;
+    scrollbar-color:#c89c4b #efe7dd;
 }
 
 .wish-card h4{
@@ -1376,6 +1628,52 @@ body.lock{
 .wish-card p{
     margin-top:10px;
     line-height:1.7;
+}
+.wish-section{
+    background:#ffffff;
+    padding:180px 25px 120px;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+}
+
+.wish-floral-top{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1;
+    pointer-events:none;
+}
+
+.wish-floral-bottom{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    z-index:1;
+    pointer-events:none;
+}
+
+.wish-header,
+#wishList{
+    position:relative;
+    z-index:2;
+}
+
+.wish-header{
+    margin-bottom:40px;
+}
+
+.wish-header h2{
+    font-size:34px;
+    color:#7A1E2C;
+    margin-bottom:15px;
+}
+
+.wish-header p{
+    color:#777;
+    line-height:1.8;
 }
 
 @media (min-width:768px){
